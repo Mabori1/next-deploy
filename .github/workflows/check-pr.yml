@@ -10,9 +10,13 @@ jobs:
       - uses: action/checkout@v4
       - uses: action/setup-node@v3
         with:
-          node-version: 20.x.x
+          node-version: 20
           cach: npm
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run lint:types
-      - run: npm run test
+      - name: Install dependencies
+        run: npm ci
+      - name: run lint
+        run: npm run lint
+      - name: run lint types
+        run: npm run lint:types
+      - name: run test
+        run: npm run test
